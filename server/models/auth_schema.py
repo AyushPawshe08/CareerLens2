@@ -1,10 +1,3 @@
-"""
-Core Pydantic models for CareerLens.
-
-These are the structured-output contracts the LLM must fill in, and the
-shapes every downstream component (API responses, LangGraph state) relies on.
-"""
-
 from __future__ import annotations
 
 from enum import Enum
@@ -13,13 +6,7 @@ from typing import List, Optional
 from pydantic import BaseModel, EmailStr, Field
 
 
-# ---------------------------------------------------------------------------
-# Resume Analysis
-# ---------------------------------------------------------------------------
-
 class ResumeAnalysis(BaseModel):
-    """Structured output of the Resume Analysis Agent."""
-
     summary: str = Field(
         ..., description="2-4 sentence summary of the candidate's profile relative to the JD."
     )
@@ -47,10 +34,6 @@ class ResumeAnalysis(BaseModel):
     )
 
 
-# ---------------------------------------------------------------------------
-# Interview Questions
-# ---------------------------------------------------------------------------
-
 class QuestionDifficulty(str, Enum):
     easy = "easy"
     medium = "medium"
@@ -67,25 +50,13 @@ class InterviewQuestion(BaseModel):
 
 
 class InterviewQuestions(BaseModel):
-    """Structured output of the Interview Question Agent.
-
-    NOTE: generated as a single LLM call (not 3 parallel calls) to save
-    tokens/latency — see build notes.
-    """
-
     technical: List[InterviewQuestion] = Field(default_factory=list)
     hr: List[InterviewQuestion] = Field(default_factory=list)
     behavioral: List[InterviewQuestion] = Field(default_factory=list)
 
 
-# ---------------------------------------------------------------------------
-# Top-level request/response models (used by the API layer later)
-# ---------------------------------------------------------------------------
-
 class AnalyzeRequest(BaseModel):
     job_description: str = Field(..., min_length=20)
-    # resume file itself comes in as an UploadFile in the FastAPI route,
-    # not as part of this JSON body.
 
 
 class AnalyzeResponse(BaseModel):
@@ -93,10 +64,6 @@ class AnalyzeResponse(BaseModel):
     interview_questions: InterviewQuestions
     errors: List[str] = Field(default_factory=list)
 
-
-# ---------------------------------------------------------------------------
-# Auth
-# ---------------------------------------------------------------------------
 
 class UserCreate(BaseModel):
     email: EmailStr
@@ -106,18 +73,16 @@ class UserCreate(BaseModel):
 
 class UserLogin(BaseModel):
     email: EmailStr
-    password: str = Field(..., min_length=1)  # no max/min-strength check on login, only on create
+    password: str = Field(..., min_length=1)
 
 
 class UserOut(BaseModel):
-    """Public-facing user shape — NEVER includes hashed_password."""
-
     id: str
     email: EmailStr
     full_name: Optional[str] = None
     created_at: str
 
-    model_config = {"from_attributes": True}  # lets this be built directly from a User ORM row
+    model_config = {"from_attributes": True}
 
 
 class Token(BaseModel):

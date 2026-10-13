@@ -5,7 +5,7 @@ export default function AnalysisResult({ resumeAnalysis, interviewQuestions, err
 
   const score = resumeAnalysis?.match_score ?? null;
 
-  // Determine score status tier and color
+
   let scoreClass = "score-purple";
   let scoreLabel = "Moderate Fit";
   if (score !== null) {
@@ -18,7 +18,6 @@ export default function AnalysisResult({ resumeAnalysis, interviewQuestions, err
     }
   }
 
-  // Calculate SVG stroke offset for a circle radius of 42 (circumference ~ 264)
   const radius = 42;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset =

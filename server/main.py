@@ -1,18 +1,12 @@
-"""
-FastAPI application entrypoint.
-
-Run with:  uvicorn app.main:app --reload
-"""
-
 from __future__ import annotations
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from auth_routes import router as auth_router
-from history_routes import router as history_router
-from routes import router as analyze_router
-from config import settings
+from api.auth_routes import router as auth_router
+from api.history_routes import router as history_router
+from api.routes import router as analyze_router
+from core.config import settings
 
 app = FastAPI(
     title=settings.app_name,
@@ -21,8 +15,6 @@ app = FastAPI(
     debug=settings.debug,
 )
 
-# NOTE: tighten allow_origins to your actual frontend domain(s) before
-# deploying to production — "*" is fine for local dev only.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"] if settings.environment == "development" else [],
@@ -38,17 +30,11 @@ app.include_router(analyze_router)
 
 @app.on_event("startup")
 async def on_startup() -> None:
-    # Creates missing tables only — does not migrate existing ones.
-    # See app/core/database.py docstring: switch to Alembic once the
-    # schema stabilizes.
-    from database import init_db
+    from core.database import init_db
 
     await init_db()
 
 
 @app.get("/health", tags=["meta"])
 async def health() -> dict:
-    """Basic liveness check — does NOT verify LLM provider connectivity.
-    Extend this later with a lightweight provider ping if you want
-    readiness-style health checks."""
     return {"status": "ok", "app": settings.app_name, "environment": settings.environment}

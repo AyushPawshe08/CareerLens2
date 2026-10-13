@@ -1,11 +1,3 @@
-"""
-SQLAlchemy ORM models (database tables).
-
-Keep these separate from app/models/schemas.py (Pydantic models used for
-LLM structured output / API request-response shapes) — ORM models and
-API/LLM schemas are different concerns and will drift apart over time.
-"""
-
 from __future__ import annotations
 
 import uuid
@@ -15,7 +7,7 @@ from sqlalchemy import DateTime, ForeignKey, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from database import Base
+from core.database import Base
 
 
 def _utcnow() -> datetime:
@@ -43,17 +35,11 @@ class User(Base):
         back_populates="user", cascade="all, delete-orphan"
     )
 
-    def __repr__(self) -> str:  # pragma: no cover - debug convenience only
+    def __repr__(self) -> str:
         return f"<User id={self.id} email={self.email}>"
 
 
 class AnalysisHistory(Base):
-    """One row per resume+JD analysis run. Stores extracted TEXT only —
-    never the raw PDF bytes (see build discussion: PII/storage cost
-    trade-off). Populated once the API layer is wired to persist results
-    (later file) — this is just the table definition for now.
-    """
-
     __tablename__ = "analysis_history"
 
     id: Mapped[uuid.UUID] = mapped_column(
@@ -69,9 +55,6 @@ class AnalysisHistory(Base):
     resume_text: Mapped[str] = mapped_column(Text, nullable=False)
     job_description: Mapped[str] = mapped_column(Text, nullable=False)
 
-    # Stored as JSON text for now (simplest to wire up); if querying inside
-    # these blobs becomes a need later (e.g. "find all analyses mentioning
-    # Docker"), migrate this column to native JSONB instead.
     resume_analysis_json: Mapped[str] = mapped_column(Text, nullable=False)
     interview_questions_json: Mapped[str] = mapped_column(Text, nullable=True)
 
@@ -79,5 +62,5 @@ class AnalysisHistory(Base):
 
     user: Mapped["User"] = relationship(back_populates="analyses")
 
-    def __repr__(self) -> str:  # pragma: no cover
+    def __repr__(self) -> str:
         return f"<AnalysisHistory id={self.id} user_id={self.user_id}>"

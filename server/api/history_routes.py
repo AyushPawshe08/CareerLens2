@@ -1,11 +1,3 @@
-"""
-History routes: GET /api/history (list), GET /api/history/{id} (detail).
-
-Both scoped to the authenticated user only — a user can never see another
-user's history, enforced by filtering every query on user_id, not just by
-checking ownership after the fact.
-"""
-
 from __future__ import annotations
 
 import uuid
@@ -14,10 +6,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from database import get_db
-from dependencies import get_current_user
-from db_models import AnalysisHistory, User
-from history_schema import (
+from core.database import get_db
+from api.dependencies import get_current_user
+from models.db_models import AnalysisHistory, User
+from models.history_schema import (
     HistoryItem,
     HistoryListItem,
     InterviewQuestions,
@@ -34,7 +26,7 @@ async def list_history(
     limit: int = 20,
     offset: int = 0,
 ) -> list[HistoryListItem]:
-    limit = max(1, min(limit, 100))  # clamp: never let a client ask for unbounded rows
+    limit = max(1, min(limit, 100))
 
     stmt = (
         select(AnalysisHistory)
@@ -50,8 +42,6 @@ async def list_history(
         try:
             analysis = ResumeAnalysis.model_validate_json(row.resume_analysis_json)
         except Exception:
-            # A row with malformed stored JSON shouldn't break the whole
-            # list — skip it rather than 500ing the entire history page.
             continue
         items.append(
             HistoryListItem(
@@ -81,9 +71,6 @@ async def get_history_item(
 
     row = await db.get(AnalysisHistory, history_uuid)
 
-    # Same 404 whether the row doesn't exist OR belongs to someone else —
-    # never reveal "this ID exists but isn't yours" (that leaks info about
-    # other users' data existing).
     if row is None or row.user_id != current_user.id:
         raise not_found
 
