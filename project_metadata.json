@@ -1,0 +1,36 @@
+{
+  "slug": "careerlens",
+  "order": "01",
+  "status": "Live",
+  "one_word_desc": "Resume Analyzer",
+  "category": "Full Stack",
+  "title": "CareerLens",
+  "description": "A resume intelligence platform that evaluates candidate fit against job descriptions and skill expectations using AI-powered analysis.",
+  "cardIcons": ["nextjs", "python", "fastapi", "postgresql"],
+  "cover": {
+    "type": "image",
+    "image": "/projects/CareerLensUI.png",
+    "heading": "CareerLens"
+  },
+  "liveUrl": "https://careerlens-eosin.vercel.app/",
+  "sourceUrl": "https://github.com/AyushPawshe08/CareerLens2",
+  "demoUrl": "https://www.youtube.com/watch?v=BPuIvwDfkkw",
+  "about": [
+    "CareerLens analyzes a resume against a target job description to produce a structured view of role alignment, ATS readiness, and missing competencies. The platform converts raw resume content into actionable career signals using LangGraph-powered AI workflows.",
+    "It generates an ATS score, skill-gap analysis, role recommendations, improvement suggestions, and a concise resume summary. The system also provides technical, behavioral, and HR interview questions tailored to the candidate profile.",
+    "The backend uses FastAPI with LangGraph for asynchronous analysis workflows and parallel LLM execution, while PostgreSQL on Neon stores application data. The experience is delivered through a React and Vite interface with JWT-based authentication and Groq/Gemini AI models."
+  ],
+  "stack": [
+    "nextjs",
+    "react",
+    "vite",
+    "tailwind",
+    "python",
+    "fastapi",
+    "postgresql",
+    "neon",
+    "langchain",
+    "langgraph",
+    "jwt"
+  ]
+}

@@ -266,7 +266,7 @@ export default function Landing() {
       <footer className="landing-footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <span className="brand-logo-mark">⚡</span>
+            <img className="footer-brand-icon" src="/Logo.png" alt="" />
             <span className="footer-title">CareerLens</span>
             <p className="footer-tagline">
               AI resume analysis and tailored interview preparation.

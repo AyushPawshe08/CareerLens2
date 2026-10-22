@@ -3,63 +3,66 @@
    ========================================================================== */
 
 :root {
+  color-scheme: dark;
+
   /* Brand Purple Palette */
   --purple-900: #4c1d95;
   --purple-800: #5b21b6;
-  --purple-700: #6d28d9;
-  --purple-600: #7c3aed;
+  --purple-700: #c4b5fd;
+  --purple-600: #a78bfa;
   --purple-500: #8b5cf6;
-  --purple-400: #a78bfa;
-  --purple-200: #ddd6fe;
-  --purple-100: #ede9fe;
-  --purple-50: #f5f3ff;
+  --purple-400: #c4b5fd;
+  --purple-300: #6b4ca3;
+  --purple-200: #4c3674;
+  --purple-100: #2c1e49;
+  --purple-50: #1b142e;
 
-  /* Neutrals (Slate) */
-  --slate-950: #020617;
-  --slate-900: #0f172a;
-  --slate-800: #1e293b;
-  --slate-700: #334155;
-  --slate-600: #475569;
-  --slate-500: #64748b;
-  --slate-400: #94a3b8;
-  --slate-300: #cbd5e1;
-  --slate-200: #e2e8f0;
-  --slate-100: #f1f5f9;
-  --slate-50: #f8fafc;
+  /* Dark surfaces and light foregrounds */
+  --slate-950: #f8fafc;
+  --slate-900: #f1f5f9;
+  --slate-800: #e2e8f0;
+  --slate-700: #cbd5e1;
+  --slate-600: #a8b4c5;
+  --slate-500: #94a3b8;
+  --slate-400: #64748b;
+  --slate-300: #475569;
+  --slate-200: #334155;
+  --slate-100: #111111;
+  --slate-50: #080808;
   --white: #ffffff;
 
   /* Semantic Feedback */
-  --emerald-700: #047857;
-  --emerald-600: #059669;
+  --emerald-700: #6ee7b7;
+  --emerald-600: #34d399;
   --emerald-500: #10b981;
-  --emerald-200: #a7f3d0;
-  --emerald-100: #d1fae5;
-  --emerald-50: #ecfdf5;
+  --emerald-200: #065f46;
+  --emerald-100: #064e3b;
+  --emerald-50: #052e2b;
 
-  --amber-700: #b45309;
-  --amber-600: #d97706;
+  --amber-700: #fcd34d;
+  --amber-600: #fbbf24;
   --amber-500: #f59e0b;
-  --amber-200: #fde68a;
-  --amber-100: #fef3c7;
-  --amber-50: #fffbeb;
+  --amber-200: #92400e;
+  --amber-100: #422006;
+  --amber-50: #2d1c05;
 
-  --red-700: #b91c1c;
-  --red-600: #dc2626;
+  --red-700: #fca5a5;
+  --red-600: #f87171;
   --red-500: #ef4444;
-  --red-200: #fecaca;
-  --red-100: #fee2e2;
-  --red-50: #fef2f2;
+  --red-200: #7f1d1d;
+  --red-100: #450a0a;
+  --red-50: #2b1015;
 
-  --blue-700: #1d4ed8;
-  --blue-600: #2563eb;
+  --blue-700: #93c5fd;
+  --blue-600: #60a5fa;
   --blue-500: #3b82f6;
-  --blue-200: #bfdbfe;
-  --blue-100: #dbeafe;
-  --blue-50: #eff6ff;
+  --blue-200: #1e40af;
+  --blue-100: #172554;
+  --blue-50: #0c1b38;
 
   /* System Semantics */
-  --primary: var(--purple-600);
-  --primary-hover: var(--purple-700);
+  --primary: #7c3aed;
+  --primary-hover: #6d28d9;
   --primary-light: var(--purple-50);
   --primary-border: var(--purple-200);
   --primary-glow: rgba(124, 58, 237, 0.16);
@@ -69,17 +72,17 @@
   --text-muted: var(--slate-500);
   --text-light: var(--slate-400);
 
-  --bg-page: #f8fafc;
-  --bg-card: #ffffff;
+  --bg-page: #000000;
+  --bg-card: #080808;
   --border: var(--slate-200);
   --border-hover: var(--slate-300);
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.09), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.18);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.24), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.24);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.32), 0 8px 10px -6px rgba(0, 0, 0, 0.26);
   --shadow-purple: 0 10px 25px -5px rgba(124, 58, 237, 0.25);
 
   /* Radii */
@@ -111,6 +114,7 @@ body {
   font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-page);
   color: var(--text-body);
+  color-scheme: dark;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -167,9 +171,7 @@ p:last-child {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--purple-700) 0%, var(--purple-500) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--purple-400);
   display: inline-block;
 }
 
@@ -192,7 +194,7 @@ p:last-child {
   align-items: center;
   justify-content: center;
   padding: 2rem 1.5rem;
-  background: radial-gradient(circle at 50% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 60%);
+  background: var(--bg-page);
 }
 
 .page-header {
@@ -253,7 +255,7 @@ p:last-child {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.88);
+  background: #000000;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -287,13 +289,8 @@ p:last-child {
 .brand-icon {
   width: 34px;
   height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
-  color: var(--white);
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.28);
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .navbar-links {
@@ -453,7 +450,7 @@ p:last-child {
   font-size: 0.98rem;
   font-weight: 600;
   color: var(--slate-700);
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--slate-300);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -523,7 +520,7 @@ p:last-child {
   font-family: inherit;
   font-size: 0.95rem;
   color: var(--slate-900);
-  background: var(--white);
+  background: var(--bg-card);
   padding: 0.75rem 0.95rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -623,7 +620,7 @@ p:last-child {
   transform: translateX(-50%);
   width: 800px;
   height: 500px;
-  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.12) 0%, rgba(245, 243, 255, 0) 70%);
+  background: transparent;
   pointer-events: none;
   z-index: 0;
 }
@@ -641,7 +638,7 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--purple-200);
   box-shadow: var(--shadow-sm);
   padding: 0.4rem 1rem;
@@ -682,6 +679,12 @@ p:last-child {
   margin: 0 auto 2.5rem;
 }
 
+.hero-actions .btn-large,
+.cta-banner-actions .btn-large {
+  flex: 1 1 0;
+  white-space: nowrap;
+}
+
 .hero-proof-list {
   display: flex;
   justify-content: center;
@@ -708,7 +711,7 @@ p:last-child {
 .hero-preview {
   max-width: 900px;
   margin: 0 auto;
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-xl);
   box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.04);
@@ -742,7 +745,7 @@ p:last-child {
 .browser-url {
   font-size: 0.8rem;
   color: var(--slate-500);
-  background: var(--white);
+  background: var(--bg-card);
   padding: 0.2rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--slate-200);
@@ -782,7 +785,7 @@ p:last-child {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+  background: var(--purple-800);
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -870,7 +873,7 @@ p:last-child {
 .preview-q-why {
   font-size: 0.82rem;
   color: var(--slate-600);
-  background: var(--white);
+  background: var(--bg-card);
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
   border-left: 3px solid var(--purple-500);
@@ -921,7 +924,7 @@ p:last-child {
 
 .step-card {
   position: relative;
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-lg);
   padding: 2.25rem 1.75rem;
@@ -970,7 +973,7 @@ p:last-child {
 
 /* Features Section */
 .features-section {
-  background: var(--white);
+  background: var(--bg-card);
   border-top: 1px solid var(--slate-200);
   border-bottom: 1px solid var(--slate-200);
   padding: 5rem 1.5rem;
@@ -1046,7 +1049,8 @@ p:last-child {
 }
 
 .cta-banner {
-  background: linear-gradient(135deg, var(--purple-900) 0%, var(--purple-700) 50%, var(--purple-600) 100%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   padding: 3.5rem 2rem;
   text-align: center;
@@ -1062,7 +1066,7 @@ p:last-child {
 
 .cta-banner p {
   font-size: 1.1rem;
-  color: var(--purple-100);
+  color: var(--slate-600);
   max-width: 580px;
   margin: 0 auto 2rem;
 }
@@ -1076,15 +1080,17 @@ p:last-child {
 }
 
 .btn-cta-white {
-  background: var(--white);
-  color: var(--purple-800);
+  background: var(--bg-page);
+  color: var(--purple-400);
   font-weight: 700;
+  border: 1px solid var(--purple-400);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .btn-cta-white:hover:not(:disabled) {
   background: var(--slate-50);
-  color: var(--purple-900);
+  color: var(--purple-400);
+  border-color: var(--purple-400);
 }
 
 .btn-cta-outline {
@@ -1102,7 +1108,7 @@ p:last-child {
 /* Landing Footer */
 .landing-footer {
   border-top: 1px solid var(--slate-200);
-  background: var(--white);
+  background: var(--bg-card);
   padding: 3.5rem 1.5rem 2rem;
 }
 
@@ -1120,6 +1126,12 @@ p:last-child {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.footer-brand-icon {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .footer-title {
@@ -1278,7 +1290,7 @@ p:last-child {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--slate-200);
   color: var(--purple-600);
   display: flex;
@@ -1343,7 +1355,7 @@ p:last-child {
 }
 
 .btn-change-file {
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--slate-300);
   padding: 0.4rem 0.85rem;
   border-radius: var(--radius-sm);
@@ -1513,7 +1525,7 @@ p:last-child {
 }
 
 .skill-category-box {
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 1.25rem;
@@ -1701,7 +1713,7 @@ p:last-child {
 }
 
 .question-item-card {
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
@@ -1903,7 +1915,7 @@ p:last-child {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 1.5rem;
-  background: var(--white);
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   text-decoration: none;
